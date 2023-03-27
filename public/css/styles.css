@@ -1,0 +1,282 @@
+* {
+    margin: 0 auto;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    color: darkcyan;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+/* Header, nav */
+header {
+    background-color: whitesmoke;
+    border-bottom: 0.1px grey solid;
+    padding: 48px;
+    text-align: left;
+}
+
+.headline {
+    font-weight: bold;
+    font-size: larger;
+}
+
+header nav {
+    float: right;
+}
+
+header nav a {
+    text-decoration: none;
+    color: rosybrown;
+    padding: 0 8px;
+}
+
+/* main  */
+main {
+    background-color: aliceblue;
+    height: fit-content;
+    min-height: 100%;
+
+    padding: 48px 0;
+}
+
+section {
+    width: 68%;
+    margin: 38px auto;
+    padding: 28px;
+    border: 0.1px gray solid;
+    border-radius: 8px;
+}
+
+.s1 {
+    border: none;
+    display: flex;
+    justify-content: center;
+}
+
+.s1>* {
+    margin: 0 6px;
+}
+
+#addNewInput {
+    padding: 12px 20px;
+    border: 0.1px solid gray;
+    border-radius: 4px;
+    outline: none;
+    color: lightslategray;
+}
+
+#addNewBtn,
+#discardBtn {
+    border-radius: 50%;
+    border: none;
+    background-color: #35d399;
+    color: white;
+    font-size: large;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+#discardBtn {
+    border-radius: 12px;
+    border: 1px solid tomato;
+    background-color: transparent;
+    color: tomato;
+    width: fit-content;
+    padding: 0 8px;
+    font-size: small;
+}
+
+#discardBtn:hover {
+    background-color: tomato;
+    color: white;
+}
+
+/* OnGoing  */
+h4 {
+    padding: 12px 0;
+}
+
+.taskItem {
+    border: 1px grey solid;
+    border-radius: 4px;
+    width: 320px;
+    max-width: 80%;
+    padding: 12px 4px;
+    margin: 6px auto;
+    display: flex;
+}
+
+.taskItem>* {
+    display: inline;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mark {
+    float: left;
+    width: 8%;
+}
+
+.markDoneBtn,
+.markUndoneBtn {
+    border-radius: 50px;
+    color: #35d399;
+    cursor: pointer;
+}
+
+.markDoneBtn:hover {
+    background-color: #35d399;
+    color: white;
+}
+
+.markUndoneBtn {
+    color: grey;
+}
+
+.markUndoneBtn:hover {
+    background-color: grey;
+    color: white;
+}
+
+.bin {
+    float: right;
+    width: 8%;
+}
+
+.binBtn {
+    color: tomato;
+}
+
+.binBtn:hover {
+    border-radius: 4px;
+    background-color: tomato;
+    color: white;
+}
+
+.no-hover {
+    pointer-events: none;
+}
+
+.icons {
+    cursor: pointer;
+}
+
+.taskNameDiv {
+    display: table;
+    width: 80%;
+    margin: 0 4px;
+    overflow: scroll;
+}
+
+.taskNameDiv span {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.taskNameDiv .completed {
+    color: grey;
+}
+
+.emptyMessage {
+    color: grey;
+    font-size: small;
+    margin: 28px 0;
+}
+
+/* Footer  */
+footer {
+    background-color: azure;
+    bottom: 0;
+    border-top: 1px black solid;
+    padding: 48px;
+}
+
+footer>span {
+    padding: 0 48px;
+}
+
+.lineBreak {
+    display: none;
+}
+
+table,
+td {
+    border-collapse: collapse;
+    border: 0.1px grey solid;
+    width: 52%;
+    padding: 12px;
+}
+
+table tr td:first-child {
+    width: 16px;
+    min-width: 16px;
+    max-width: 16px;
+    word-break: break-all;
+}
+
+table tr td:last-child {
+    text-align: left;
+    font-size: small;
+}
+.contentTitle {
+    font-size: medium;
+    font-weight: bold;
+}
+
+tr {
+    height: 78px;
+}
+/* Landing Page  */
+h2 {
+    margin: 56px auto 24px auto;
+}
+
+.getStartedBtn {
+    margin: 28px auto;
+    padding: 12px 24px;
+    border-radius: 12px;
+    border: 0.2px green solid;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.getStartedBtn:hover {
+    background-color: steelblue;
+    color: white;
+}
+
+@media only screen and (max-width: 600px) {
+    header {
+        height: 80px;
+        text-align: center;
+    }
+
+    header nav {
+        float: none;
+        text-align: center;
+
+    }
+
+    header nav a {
+        display: block;
+    }
+
+    .lineBreak {
+        display: block;
+    }
+
+    .s1 {
+        display: block;
+    }
+
+    section {
+        padding: 8px 0;
+        width: 92%;
+    }
+}

@@ -1,0 +1,27 @@
+<main>
+    <h2>Welcome.</h2>
+    <a href="todo"><button class="getStartedBtn">Get Started Now</button></a>
+
+    <h2>Features</h2>
+    <table>
+        {{#each features}}
+        <tr>
+            <td style="width:24%">
+                <span class="material-symbols-outlined icons {{iconClass}} no-hover">
+                    {{icon}}
+                </span>
+            </td>
+            <td>
+                <u><span class="contentTitle">{{title}}</span></u>
+                <br>
+                {{details}}
+            </td>
+        </tr>
+        {{/each}}
+        
+    </table>
+
+    <br><br><br><br>
+    <h3>Stay motivated and achieve your goals with our powerful task management tool!</h3>
+    <a href="todo"><button class="getStartedBtn">Get Started Now</button></a>
+</main>
