@@ -61,6 +61,10 @@ section {
     margin: 0 6px;
 }
 
+.s1 form > * {
+    margin: 0 4px;
+}
+
 #addNewInput {
     padding: 12px 20px;
     border: 0.1px solid gray;
@@ -224,6 +228,7 @@ table tr td:last-child {
     text-align: left;
     font-size: small;
 }
+
 .contentTitle {
     font-size: medium;
     font-weight: bold;
@@ -232,6 +237,7 @@ table tr td:last-child {
 tr {
     height: 78px;
 }
+
 /* Landing Page  */
 h2 {
     margin: 56px auto 24px auto;

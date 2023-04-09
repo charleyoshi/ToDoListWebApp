@@ -1,12 +1,33 @@
+// /*
+// Name: Course Project: To-do List Web App - Phase 2
+// Course Code: SODV1201
+// Class: Software Development Diploma program
+// Author: Charley Tsang
+// */   
+
+// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Remove item when bin icon is clicked. Completely removed from array.
+// Updated for phase 2. Use AJAX POST request to delete corresponding item
+function removeItem(id, task) {
+    $.post("/delete", { id, task }, (data, status) => { })
+        .fail((jqXHR, textStatus, errorThrown) => {
+            console.error(`AJAX request failed: ${textStatus}, ${errorThrown}`);
+            $.post("/failure", { message: `AJAX request failed: ${textStatus}, ${errorThrown}` });
+        }).then(() => location.reload());
+}
+
+// When the green check icon is clicked, completed task is removed from ongoing, and is appended to completed
+function changeStatus(id, task, status) {
+    $.post("/update", { id, task, status }, (data, status) => { })
+        .fail((jqXHR, textStatus, errorThrown) => {
+            console.error(`AJAX request failed: ${textStatus}, ${errorThrown}`);
+            $.post("/failure", { message: `AJAX request failed: ${textStatus}, ${errorThrown}` });
+        }).then(() => location.reload());
+}
+
+/************  Note : All of the following functions are unused in Phase 2 *************/
 /*
-Name: Course Project: To-do List Web App - Phase 1
-Course Code: SODV1201
-Class: Software Development Diploma program
-Author: Charley Tsang
-*/
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 // Array holding the todo list items
 // id, taskName, isComplete(false / true)
 var todoItems = [];
@@ -15,13 +36,15 @@ var idCounter = 0;
 
 // Section 1: #addNewInput, #addNewBtn, #discardBtn
 
-// Add new Button: add new task to todoItems when clicked
+// Add new Button: add new task to todoItems when clicked 
 $("#addNewBtn").click(function () {
     var newTask = $("#addNewInput").val();
-    if (newTask !== "" && newTask.trim()) addTodo(newTask);
+    if (newTask !== "" && newTask.trim()) {
+        addTodo(newTask);
+    }
 });
 
-// Discard Button: clear input field when clicked
+// Discard Button: clear input field when clicked Todo: delete this function 
 $("#discardBtn").click(function () {
     $("#addNewInput").val('');
 });
@@ -37,7 +60,6 @@ function addTodo(taskName) {
     todoItems.push(todo);
     $("#addNewInput").val(''); // reset input field
     displayAllOnGoingTasks();
-
 }
 
 // Build a task item for ongoing and completed task
@@ -71,30 +93,7 @@ function getNewItem(todo, fn = 'markDone') {
     return newItem
 }
 
-// remove item when bin icon is clicked. Completely removed from array.
-function removeItem(id) {
-    for (var i = 0; i < todoItems.length; i++) {
-        if (todoItems[i].id == id) {
-            todoItems.splice(i, 1);
-            break;
-        }
-    }
-    displayAllOnGoingTasks();
-    displayAllCompletedTasks();
-}
-
-// When the green check icon is clicked, completed task is removed from ongoing, and is appended to completed
-function markDone(id) {
-    for (var i = 0; i < todoItems.length; i++) {
-        if (todoItems[i].id == id) {
-            todoItems[i].isComplete = true;
-            break;
-        }
-    }
-    displayAllOnGoingTasks();
-    displayAllCompletedTasks();
-}
-
+// Unused in Phase 2
 // Reverse of markDone(), when the grey undo icon is clicked. Put the completed task back to ongoing
 function markUndone(id) {
     for (var i = 0; i < todoItems.length; i++) {
@@ -105,9 +104,9 @@ function markUndone(id) {
     }
     displayAllOnGoingTasks();
     displayAllCompletedTasks();
-
 }
 
+// Unused in Phase 2
 // Rebuild all ongoing tasks
 function displayAllOnGoingTasks() {
     $("#ongoingTasks").empty();
@@ -115,9 +114,9 @@ function displayAllOnGoingTasks() {
         if (!todoItems[i].isComplete) $("#ongoingTasks").append(getNewItem(todoItems[i]));
     if ($('#ongoingTasks').is(':empty'))
         $("#ongoingTasks").append('<div class="emptyMessage">Your to-do list is empty.</div>')
-        
 }
 
+// Unused in Phase 2
 // Rebuild all completed tasks
 function displayAllCompletedTasks() {
     $("#completedTasks").empty();
@@ -132,3 +131,5 @@ $(document).ready(function () {
     displayAllOnGoingTasks();
     displayAllCompletedTasks();
 });
+
+*/

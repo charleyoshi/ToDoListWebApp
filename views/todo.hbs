@@ -1,18 +1,63 @@
 <main>
     <section class="s1">
-        <input type="Add New" id="addNewInput" placeholder="Add New Task">
-        <br class="lineBreak">
-        <br class="lineBreak">
-        <button id="addNewBtn">+</button>
-        <button id="discardBtn">Discard</button>
-
+        <form action="/add" method="POST">
+            <input type="text" id="addNewInput" placeholder="Add New Task" name="task">
+            <br class="lineBreak">
+            <br class="lineBreak">
+            <button type="sumbit" id="addNewBtn">+</button>
+            <button type="reset" id="discardBtn">Discard</button>
+        </form>
     </section>
     <section class="s2">
         <h4>OnGoing</h4>
-        <div id="ongoingTasks"></div>
+        <div id="ongoingTasks">
+            {{#if onGoingTasks.length}}
+            {{#each onGoingTasks}}
+            <div class="taskItem">
+                <div class="mark">
+                    <span onclick="changeStatus('{{task_id}}', '{{task}}', '{{status}}')" class="material-symbols-outlined icons markDoneBtn">
+                        check_circle </span>
+                </div>
+                <div class="taskNameDiv">
+                    <span class="taskName">{{task}}</span>
+                </div>
+                <div class="bin">
+                        <span onclick="removeItem('{{task_id}}', '{{task}}')" class="material-symbols-outlined icons binBtn">
+                            delete </span>
+                </div>
+            </div>
+            {{/each}}
+            {{else}}
+            <div class="emptyMessage">Your to-do list is empty.</div>
+            {{/if}}
+
+        </div>
+
+
+
     </section>
     <section class="s3">
         <h4>Completed</h4>
-        <div id="completedTasks"></div>
+        <div id="completedTasks">
+        </div>
+        {{#if completedTasks.length}}
+        {{#each completedTasks}}
+        <div class="taskItem">
+            <div class="mark">
+                <span onclick="changeStatus('{{task_id}}', '{{task}}', '{{status}}')" class="material-symbols-outlined icons markUndoneBtn">
+                    undo </span>
+            </div>
+            <div class="taskNameDiv">
+                <span class="taskName completed">{{task}}</span>
+            </div>
+            <div class="bin">
+                <span onclick="removeItem('{{task_id}}', '{{task}}')" class="material-symbols-outlined icons binBtn">
+                    delete </span>
+            </div>
+        </div>
+        {{/each}}
+        {{else}}
+        <div class="emptyMessage">Your completed list is empty.</div>
+        {{/if}}
     </section>
 </main>
